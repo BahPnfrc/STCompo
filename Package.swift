@@ -11,11 +11,16 @@ let package = Package(
             name: "STCompo",
             targets: ["STCompo"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/daltoniam/Starscream.git", from: "4.0.6")
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "STCompo"),
+            name: "STCompo",
+            dependencies: ["Starscream"],
+            path: "Sources"),
         .testTarget(
             name: "STCompoTests",
             dependencies: ["STCompo"]),
